@@ -1,0 +1,29 @@
+# Gradle files
+.gradle/
+build/
+out/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Maven files (if applicable)
+target/
+
+# Other files
+*.jar
+*.war
+*.zip
+*.tar.gz

@@ -1,4 +1,4 @@
-package com.hello.__suzy_kang_community_be.user.entity;
+package com.suzy.community_be.users.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

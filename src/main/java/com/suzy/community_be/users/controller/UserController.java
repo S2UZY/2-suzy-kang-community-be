@@ -1,11 +1,11 @@
-package com.hello.__suzy_kang_community_be.user.controller;
+package com.suzy.community_be.users.controller;
 
-import com.hello.__suzy_kang_community_be.gobal.response.ApiResponse;
-import com.hello.__suzy_kang_community_be.user.dto.request.UserRequestDto;
-import com.hello.__suzy_kang_community_be.user.dto.response.UserIdResponse;
-import com.hello.__suzy_kang_community_be.user.dto.response.UserResponseDto;
-import com.hello.__suzy_kang_community_be.user.entity.User;
-import com.hello.__suzy_kang_community_be.user.service.UserService;
+import com.suzy.community_be.gobal.response.ApiResponse;
+import com.suzy.community_be.users.dto.request.UserRequestDto;
+import com.suzy.community_be.users.dto.response.UserIdResponse;
+import com.suzy.community_be.users.dto.response.UserResponseDto;
+import com.suzy.community_be.users.entity.User;
+import com.suzy.community_be.users.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

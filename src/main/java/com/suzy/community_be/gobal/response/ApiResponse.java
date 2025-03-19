@@ -1,4 +1,4 @@
-package com.hello.__suzy_kang_community_be.gobal.response;
+package com.suzy.community_be.gobal.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

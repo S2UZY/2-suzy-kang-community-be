@@ -1,6 +1,6 @@
-package com.hello.__suzy_kang_community_be.user.repository;
+package com.suzy.community_be.users.repository;
 
-import com.hello.__suzy_kang_community_be.user.entity.User;
+import com.suzy.community_be.users.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

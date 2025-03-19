@@ -1,4 +1,4 @@
-package com.hello.__suzy_kang_community_be;
+package com.suzy.community_be;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

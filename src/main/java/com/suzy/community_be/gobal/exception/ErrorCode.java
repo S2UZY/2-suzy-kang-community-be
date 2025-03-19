@@ -1,4 +1,4 @@
-package com.hello.__suzy_kang_community_be.gobal.exception;
+package com.suzy.community_be.gobal.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

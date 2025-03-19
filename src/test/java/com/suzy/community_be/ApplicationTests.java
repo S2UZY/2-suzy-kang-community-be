@@ -1,4 +1,4 @@
-package com.hello.__suzy_kang_community_be;
+package com.suzy.community_be;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

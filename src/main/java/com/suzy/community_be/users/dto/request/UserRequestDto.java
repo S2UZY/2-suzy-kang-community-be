@@ -1,4 +1,4 @@
-package com.hello.__suzy_kang_community_be.user.dto.request;
+package com.suzy.community_be.users.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;

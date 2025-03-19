@@ -1,7 +1,7 @@
-package com.hello.__suzy_kang_community_be.gobal.exception;
+package com.suzy.community_be.gobal.exception;
 
 
-import com.hello.__suzy_kang_community_be.gobal.response.ApiResponse;
+import com.suzy.community_be.gobal.response.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

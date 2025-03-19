@@ -1,10 +1,10 @@
-package com.hello.__suzy_kang_community_be.user.service;
+package com.suzy.community_be.users.service;
 
-import com.hello.__suzy_kang_community_be.gobal.exception.CustomException;
-import com.hello.__suzy_kang_community_be.gobal.exception.ErrorCode;
-import com.hello.__suzy_kang_community_be.user.dto.request.UserRequestDto;
-import com.hello.__suzy_kang_community_be.user.entity.User;
-import com.hello.__suzy_kang_community_be.user.repository.UserRepository;
+import com.suzy.community_be.gobal.exception.CustomException;
+import com.suzy.community_be.gobal.exception.ErrorCode;
+import com.suzy.community_be.users.dto.request.UserRequestDto;
+import com.suzy.community_be.users.entity.User;
+import com.suzy.community_be.users.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

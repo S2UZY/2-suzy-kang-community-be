@@ -1,6 +1,6 @@
-package com.hello.__suzy_kang_community_be.user.dto.response;
+package com.suzy.community_be.users.dto.response;
 
-import com.hello.__suzy_kang_community_be.user.entity.User;
+import com.suzy.community_be.users.entity.User;
 import lombok.Builder;
 import lombok.Getter;
 

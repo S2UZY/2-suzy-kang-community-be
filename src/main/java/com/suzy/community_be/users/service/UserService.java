@@ -2,6 +2,7 @@ package com.suzy.community_be.users.service;
 
 import com.suzy.community_be.gobal.exception.CustomException;
 import com.suzy.community_be.gobal.exception.ErrorCode;
+import com.suzy.community_be.users.dto.request.PasswordRequestDto;
 import com.suzy.community_be.users.dto.request.UserRequestDto;
 import com.suzy.community_be.users.entity.User;
 import com.suzy.community_be.users.repository.UserRepository;
@@ -54,4 +55,19 @@ public class UserService {
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
+
+    public void deleteUser(Long userId){
+        User user = userRepository.findById(userId)
+                .orElseThrow(()->new CustomException(ErrorCode.USER_NOT_FOUND));
+
+        userRepository.delete(user);
+    }
+
+    public void updatePassword(Long userId, PasswordRequestDto requestDto){
+        User user = userRepository.findById(userId)
+                .orElseThrow(()->new CustomException(ErrorCode.USER_NOT_FOUND));
+
+        user.setPassword(requestDto.getPassword());
+    }
+
 }

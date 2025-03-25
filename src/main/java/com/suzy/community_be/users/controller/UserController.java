@@ -1,6 +1,7 @@
 package com.suzy.community_be.users.controller;
 
 import com.suzy.community_be.gobal.response.ApiResponse;
+import com.suzy.community_be.users.dto.request.PasswordRequestDto;
 import com.suzy.community_be.users.dto.request.UserRequestDto;
 import com.suzy.community_be.users.dto.response.UserIdResponse;
 import com.suzy.community_be.users.dto.response.UserResponseDto;
@@ -23,7 +24,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<ApiResponse> createUser(@RequestBody UserRequestDto requestDto) {
         Long userId = userService.createUser(requestDto);
-
+        
         return ResponseEntity.status(201)
                 .body(new ApiResponse("user_post_success", true, new UserIdResponse(userId)));
     }
@@ -55,5 +56,24 @@ public class UserController {
                 .collect(Collectors.toList());
         return ResponseEntity.ok().body(new ApiResponse("user_get_success", true,userResponseDtos));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<ApiResponse> deleteUser(
+            @PathVariable Long id
+    ){
+        userService.deleteUser(id);
+        return ResponseEntity.ok(new ApiResponse("user_delete_success",true,null));
+    }
+
+    @PatchMapping("/{id}/password")
+    public ResponseEntity<ApiResponse> updatePassword(
+            @PathVariable Long id,
+            @RequestBody PasswordRequestDto requestDto
+    ){
+        userService.updatePassword(id,requestDto);
+        return ResponseEntity.ok()
+                .body(new ApiResponse("user_patch_success", true, null));
+    }
+
 
 }

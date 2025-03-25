@@ -27,3 +27,6 @@ target/
 *.war
 *.zip
 *.tar.gz
+
+# application.properties
+application.properties

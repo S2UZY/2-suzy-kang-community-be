@@ -28,7 +28,7 @@ public class User {
     @Column(nullable = false, length = 40, unique = true)
     private String email;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(nullable = false, columnDefinition = "LONGTEXT")
     private String profile;
 
     @Column(nullable = false, length = 40)

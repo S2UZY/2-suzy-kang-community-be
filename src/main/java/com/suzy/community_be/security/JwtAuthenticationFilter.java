@@ -24,21 +24,27 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         String authorizationHeader = request.getHeader("Authorization");
+        String token = null;
 
-        if(authorizationHeader != null && authorizationHeader.startsWith("Bearer ")){
-            String token = authorizationHeader.substring(7);
-            try{
+        if(authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+            token = authorizationHeader.substring(7);
+        } else {
+            token = jwtUtil.extractTokenFromCookie(request);
+        }
+
+        if(token != null) {
+            try {
                 Long userId = jwtUtil.extractUserId(token);
-                request.setAttribute("userId",userId);
+                request.setAttribute("userId", userId);
 
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
                         userId, null, Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"))
                 );
                 SecurityContextHolder.getContext().setAuthentication(authentication);
-            } catch (Exception e){
+            } catch (Exception e) {
                 System.out.println("JWT 인증 실패: " + e.getMessage());
             }
         }
-        filterChain.doFilter(request,response);
+        filterChain.doFilter(request, response);
     }
 }

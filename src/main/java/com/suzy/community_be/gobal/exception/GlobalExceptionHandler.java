@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse> handleCustomException(CustomException e) {
         return ResponseEntity
                 .status(e.getErrorCode().getStatus())
-                .body(new ApiResponse("invalid_request", false, null));
+                .body(new ApiResponse(e.getErrorCode().getMessage(), false, null));
     }
 
     @ExceptionHandler(Exception.class)

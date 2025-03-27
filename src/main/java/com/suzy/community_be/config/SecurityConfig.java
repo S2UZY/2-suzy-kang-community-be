@@ -14,10 +14,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Configuration
 @EnableWebSecurity
@@ -33,10 +30,11 @@ public class SecurityConfig {
     CorsConfigurationSource corsConfigurationSource() {
         return request -> {
             CorsConfiguration config = new CorsConfiguration();
+            config.setAllowCredentials(true);
             config.setAllowedHeaders(Collections.singletonList("*"));
             config.setAllowedMethods(Collections.singletonList("*"));
-            config.setAllowedOriginPatterns(List.of("http://localhost:3000"));
-            config.setAllowCredentials(true);
+            config.setAllowedOriginPatterns(Arrays.asList("http://localhost:5500", "http://127.0.0.1:5500"));
+
             return config;
         };
     }
@@ -54,7 +52,7 @@ public class SecurityConfig {
                 // HTTP 요청 권한 설정
                 .authorizeHttpRequests(request ->
                         request
-                                .requestMatchers("/users", "/sessions").permitAll()
+                                .requestMatchers("/users", "/sessions", "/sessions/check").permitAll()
                                 .anyRequest().authenticated())
 
                 // CORS 설정 적용

@@ -16,10 +16,11 @@ public class PostListResponse {
     private int views;
     private int likes;
     private int commentLength;
+    private String date;
 
     @Builder
     public PostListResponse(Long id, String profile, String nickname, 
-                          String title, int views, int likes, int commentLength) {
+                          String title, int views, int likes, int commentLength, String date) {
         this.id = id;
         this.profile = profile;
         this.nickname = nickname;
@@ -27,17 +28,25 @@ public class PostListResponse {
         this.views = views;
         this.likes = likes;
         this.commentLength = commentLength;
+        this.date = date;
     }
 
     public static PostListResponse from(Post post, User author) {
-        return PostListResponse.builder()
-                .id(post.getId())
-                .profile(author.getProfile())
-                .nickname(author.getNickname())
-                .title(post.getTitle())
-                .views(post.getViews().intValue())
-                .likes(post.getLikes().size())
-                .commentLength(post.getComments().size())
-                .build();
+        try {
+            return PostListResponse.builder()
+                    .id(post.getId())
+                    .profile(author.getProfile())
+                    .nickname(author.getNickname())
+                    .title(post.getTitle())
+                    .views(post.getViews().intValue())
+                    .likes(post.getLikes() != null ? post.getLikes().size() : 0)
+                    .commentLength(post.getComments() != null ? post.getComments().size() : 0)
+                    .date(post.getCreatedAt() != null ? post.getCreatedAt().toString() : "")
+                    .build();
+        } catch (Exception e) {
+            System.err.println("Error creating PostListResponse: " + e.getMessage());
+            e.printStackTrace();
+            throw e;
+        }
     }
 } 

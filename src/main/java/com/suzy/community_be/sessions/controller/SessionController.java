@@ -22,13 +22,13 @@ public class SessionController {
     @PostMapping
     public ResponseEntity<ApiResponse> login(@RequestBody LoginRequestDto requestDto, HttpServletResponse response){
         LoginResponseDto responseDto = sessionService.login(requestDto, response);
-        return ResponseEntity.ok(new ApiResponse("login_success",true,responseDto));
+        return ResponseEntity.ok(new ApiResponse("login_success",responseDto));
     }
 
     @DeleteMapping
     public ResponseEntity<ApiResponse> logout(HttpServletResponse response){
         sessionService.logout(response);
-        return ResponseEntity.ok(new ApiResponse("logout_success", true,null));
+        return ResponseEntity.ok(new ApiResponse("logout_success",null));
     }
 
     @GetMapping("/check")
@@ -37,7 +37,7 @@ public class SessionController {
         Map<String, Boolean> result = new HashMap<>();
         result.put("isLoggedIn", isLoggedIn);
 
-        return ResponseEntity.ok(new ApiResponse("login_check_success", true, result));
+        return ResponseEntity.ok(new ApiResponse("login_check_success", result));
     }
 
 }

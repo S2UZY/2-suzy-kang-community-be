@@ -26,7 +26,7 @@ public class UserController {
         Long userId = userService.createUser(requestDto);
         
         return ResponseEntity.status(201)
-                .body(new ApiResponse("user_post_success", true, new UserIdResponse(userId)));
+                .body(new ApiResponse("user_post_success", new UserIdResponse(userId)));
     }
 
     @PatchMapping("/{id}")
@@ -36,7 +36,7 @@ public class UserController {
     ){
         User updateUser = userService.updateUser(id,requestDto);
         return ResponseEntity.ok()
-                .body(new ApiResponse("user_patch_success", true, UserResponseDto.from(updateUser)));
+                .body(new ApiResponse("user_patch_success", UserResponseDto.from(updateUser)));
     }
 
     @GetMapping("/{id}")
@@ -45,7 +45,7 @@ public class UserController {
     ){
         User user = userService.getUser(id);
         return ResponseEntity.ok()
-                .body(new ApiResponse("user_get_success", true, UserResponseDto.from(user)));
+                .body(new ApiResponse("user_get_success", UserResponseDto.from(user)));
     }
 
     @GetMapping
@@ -54,7 +54,7 @@ public class UserController {
         List<UserResponseDto> userResponseDtos = users.stream()
                 .map(UserResponseDto::from)
                 .collect(Collectors.toList());
-        return ResponseEntity.ok().body(new ApiResponse("user_get_success", true,userResponseDtos));
+        return ResponseEntity.ok().body(new ApiResponse("user_get_success",userResponseDtos));
     }
 
     @DeleteMapping("/{id}")
@@ -62,7 +62,7 @@ public class UserController {
             @PathVariable Long id
     ){
         userService.deleteUser(id);
-        return ResponseEntity.ok(new ApiResponse("user_delete_success",true,null));
+        return ResponseEntity.ok(new ApiResponse("user_delete_success",null));
     }
 
     @PatchMapping("/{id}/password")
@@ -72,7 +72,7 @@ public class UserController {
     ){
         userService.updatePassword(id,requestDto);
         return ResponseEntity.ok()
-                .body(new ApiResponse("user_patch_success", true, null));
+                .body(new ApiResponse("user_patch_success", null));
     }
 
 

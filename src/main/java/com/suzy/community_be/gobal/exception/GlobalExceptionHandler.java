@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<ApiResponse> handleCustomException(CustomException e) {
         return ResponseEntity
                 .status(e.getErrorCode().getStatus())
-                .body(new ApiResponse(e.getErrorCode().getMessage(), false, null));
+                .body(new ApiResponse(e.getErrorCode().getMessage(), null));
     }
 
     @ExceptionHandler(Exception.class)
@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
         log.error("[ERROR] : {}\n{}", e.getMessage(), errorLog);
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(new ApiResponse("internal_server_error", false,null));
+                .body(new ApiResponse("internal_server_error",null));
     }
 
     private String getStackTraceAsString(Throwable e) {

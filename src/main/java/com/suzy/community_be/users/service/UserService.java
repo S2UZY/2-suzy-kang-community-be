@@ -44,7 +44,6 @@ public class UserService {
         User user = userRepository.findById(userId)
                 .orElseThrow(()->new CustomException(ErrorCode.USER_NOT_FOUND));
 
-        user.setPassword(requestDto.getPassword());
         user.setNickname(requestDto.getNickname());
         user.setProfile(requestDto.getProfile());
 

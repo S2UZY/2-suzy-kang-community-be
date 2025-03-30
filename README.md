@@ -59,7 +59,7 @@ src/
 ## 데이터베이스 설계 🗃️
 
 ### 테이블 구조
-![테이블 구조](https://github-production-user-asset-6210df.s3.amazonaws.com/67568160/428377094-0dcc126f-7889-4367-b026-6d0f3cde840a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250330%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250330T071454Z&X-Amz-Expires=300&X-Amz-Signature=d73a4321aa1851fcf55ddb97343197eb405ddb9fc742950a7a92f8a18a3af90b&X-Amz-SignedHeaders=host)
+![테이블 구조](https://github.com/user-attachments/assets/3fbdfadd-2940-4412-be88-511e93fdcfa5)
 
 1. **users** - 사용자 정보 
    - id (PK)
